@@ -11,23 +11,30 @@
 
 int main()
 {
-    int i, j, array[3], temp;
-    //Only three variables can be entered
-    printf("Enter three values with a space in betwen:\n");
-    for (i = 0; i < 3; i++)
+    //n: the upper limit of number of entery
+    //i: scan number from left to right
+    //j: if array[j - 1] > arra[j], then move array[j]to left
+    //temp: a temporary number
+    int n, i, j, array[1000], temp;
+    printf("How many values are you going to enter: ");
+    {
+        scanf("%d", &n);
+    }
+    printf("Enter values with a space in betwen (The maximum number of values is 999): ");
+    for (i = 0; i < n; i++)
     {
         scanf("%d", &array[i]);
     }
+    printf("\n");
+    printf("You just enter %d values: \n", n);
     printf("Numbers needed to be sorted: ");
-    for (i = 0; i < 3; i++)
+    for (i = 0; i < n; i++)
     {
         printf("%d ", array[i]);
     }
     printf("\n");
-    //Scan variables from array[0] to array[2]
-    for (i = 0; i < 2; i++)
+    for (i = 0; i < n - 1; i++)
     {
-        //Move the smallest variable to array[0]
         for (j = i + 1; j > 0 && array[j] < array[j - 1]; j--)
         {
             temp = array[j - 1];
@@ -36,7 +43,7 @@ int main()
         }
     }
     printf("After sorting:");
-    for (i = 0; i < 3; i++)
+    for (i = 0; i < n; i++)
     {
         printf(" %d ", array[i]);
     }
